@@ -3,11 +3,15 @@ import { Autor } from "../models/Autor";
 
 export class AutorRepository {
     
-    async criar(nome: string): Promise<void> {
-        await pool.query(
-            "INSERT INTO autores (nome) VALUES ($1)",
+    async criar(nome: string): Promise<Autor> {
+        const resultado = await pool.query(
+            "INSERT INTO autores (nome) VALUES ($1) RETURNING id,nome",
             [nome]
         )
+
+        const autor = resultado.rows[0]
+
+        return new Autor(autor.id, autor.nome)
     }
 
     async listar(): Promise<Autor[]> {

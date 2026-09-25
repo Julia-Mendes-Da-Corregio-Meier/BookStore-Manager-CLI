@@ -8,8 +8,8 @@ export class AutorController {
         this.autorService = new AutorService()
     }
 
-    async criar(nome: string): Promise<void> {
-        await this.autorService.criar(nome)
+    async criar(nome: string): Promise<Autor> {
+        return await this.autorService.criar(nome)
     }
 
     async listar(): Promise<Autor[]> {

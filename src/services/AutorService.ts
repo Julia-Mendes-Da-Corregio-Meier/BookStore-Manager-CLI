@@ -8,12 +8,12 @@ export class AutorService {
         this.autorRepository = new AutorRepository()
     }
 
-    async criar(nome: string): Promise<void> {
+    async criar(nome: string): Promise<Autor> {
         if (!nome.trim()){
             throw new Error("O nome do autor é obrigatório!")
         }
 
-        await this.autorRepository.criar(nome.trim())
+        return await this.autorRepository.criar(nome.trim())
     }
 
     async listar(): Promise<Autor[]> {

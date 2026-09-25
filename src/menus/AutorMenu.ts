@@ -43,6 +43,15 @@ export class AutorMenu {
                 case "0":
                     executando = false;
                     break;
+                case "1":
+                    const nome = await this.perguntar("Digite o nome do autor: ");
+                    const autor = await this.autorController.criar(nome);
+                    
+                    console.log("Autor criado com sucesso!");
+                    console.log(`ID: ${autor.id}`);
+                    console.log(`Nome: ${autor.nome}`)
+                   
+                    break
 
                 default:
                     console.log("Opção inválida.")
