@@ -26,7 +26,7 @@ export class AutorRepository {
 
     async buscarPorId(id: number): Promise<Autor | null> {
         const resultado = await pool.query(
-            "SELECT id, FROM autores WHERE id = $1",
+            "SELECT id, nome FROM autores WHERE id = $1",
             [id]
         );
 

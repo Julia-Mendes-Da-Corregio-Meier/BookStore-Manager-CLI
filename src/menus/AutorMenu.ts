@@ -53,6 +53,59 @@ export class AutorMenu {
                    
                     break
 
+                case "2": {
+                    const autores = await this.autorController.listar()
+
+                    console.log("\n===== AUTORES CADASTRADOS =====")
+
+                    autores.forEach((autor) => {
+                        console.log(`ID: ${autor.id} | Nome: ${autor.nome}`)
+                    })
+                break;    
+                }
+                
+
+                case "3": {
+                    const id = Number(
+                        await this.perguntar("Digite o ID do autor: ")
+                    )
+
+                    const autor = await this.autorController.buscaPorId(id)
+
+                    console.log("\n===== AUTOR ENCONTRADO =====");
+                    console.log(`ID: ${autor.id}`)
+                    console.log(`Nome: ${autor.nome}`)
+
+                    break
+                }
+
+                case "4": {
+                    const id = Number(
+                        await this.perguntar("Digite o ID do autor que deseja atualizar: ")
+                    )
+
+                    const nome = await this.perguntar("Digite o novo nome do autor: ")
+
+                    await this.autorController.atualizar(id, nome)
+
+                    console.log("Autor atualizado com sucesso!")
+
+                    break
+                }
+
+                case "5": {
+                    const id = Number(
+                        await this.perguntar("Digite o ID dp autor que desejá excuir: ")
+                    )
+
+                    await this.autorController.excluir(id)
+
+                    console.log("Autor excluído com sucesso!")
+
+                    break
+                }
+
+
                 default:
                     console.log("Opção inválida.")
             }
