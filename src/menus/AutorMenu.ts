@@ -44,12 +44,15 @@ export class AutorMenu {
                     executando = false;
                     break;
                 case "1":
-                    const nome = await this.perguntar("Digite o nome do autor: ");
+                   try{ const nome = await this.perguntar("Digite o nome do autor: ");
                     const autor = await this.autorController.criar(nome);
                     
                     console.log("Autor criado com sucesso!");
                     console.log(`ID: ${autor.id}`);
                     console.log(`Nome: ${autor.nome}`)
+                   }catch (erro){
+                    console.log((erro as Error).message)
+                   }
                    
                     break
 
@@ -66,6 +69,7 @@ export class AutorMenu {
                 
 
                 case "3": {
+                   try {
                     const id = Number(
                         await this.perguntar("Digite o ID do autor: ")
                     )
@@ -75,32 +79,43 @@ export class AutorMenu {
                     console.log("\n===== AUTOR ENCONTRADO =====");
                     console.log(`ID: ${autor.id}`)
                     console.log(`Nome: ${autor.nome}`)
+                } catch (erro) {
+                    console.log((erro as Error).message)
+                }
 
                     break
                 }
 
                 case "4": {
-                    const id = Number(
+                    try {
+                        const id = Number(
                         await this.perguntar("Digite o ID do autor que deseja atualizar: ")
                     )
-
+                    const autor = await this.autorController.buscaPorId(id)
+                   
                     const nome = await this.perguntar("Digite o novo nome do autor: ")
 
                     await this.autorController.atualizar(id, nome)
 
                     console.log("Autor atualizado com sucesso!")
+                } catch (erro) {
+                    console.log((erro as Error).message)
+                }
 
                     break
                 }
 
                 case "5": {
-                    const id = Number(
+                    try {const id = Number(
                         await this.perguntar("Digite o ID dp autor que desejá excuir: ")
                     )
 
                     await this.autorController.excluir(id)
 
                     console.log("Autor excluído com sucesso!")
+                }catch (erro){
+                    console.log((erro as Error).message)
+                }
 
                     break
                 }
