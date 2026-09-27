@@ -35,7 +35,7 @@ export class LivroController {
         await this.livroService.atualizarTitulo(id, titulo);
     }
 
-    async atualizarAno(id: number, anoPublicacao: number): Promise<void>{
+    async atualizarAno(id: number, anoPublicacao: number | null): Promise<void>{
         await this.livroService.atualizarAno(id, anoPublicacao);
     }
 
