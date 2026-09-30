@@ -5,13 +5,10 @@ export class LivroMenu {
     private livroController: LivroController;
     private rl: readline.Interface;
 
-    constructor() {
+    constructor(rl: readline.Interface) {
         this.livroController = new LivroController();
 
-        this.rl = readline.createInterface({
-            input: process.stdin,
-            output: process.stdout
-        });
+        this.rl = rl;
     }
 
     private perguntar(pergunta: string): Promise<string> {

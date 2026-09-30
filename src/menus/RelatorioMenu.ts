@@ -5,13 +5,9 @@ export class RelatorioMenu{
     private relatorioController: RelatorioController;
     private rl: readline.Interface;
 
-    constructor() {
-        this.relatorioController = new RelatorioController();
-
-        this.rl = readline.createInterface({
-            input: process.stdin,
-            output: process.stdout
-        });
+    constructor(rl: readline.Interface) {
+    this.relatorioController = new RelatorioController();
+    this.rl = rl;
     }
 
     private perguntar(pergunta: string): Promise<string> {

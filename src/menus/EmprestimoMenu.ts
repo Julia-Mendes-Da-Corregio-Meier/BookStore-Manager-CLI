@@ -5,13 +5,9 @@ export class EmprestimoMenu {
     private emprestimoController: EmprestimoController;
     private rl: readline.Interface;
 
-    constructor() {
-        this.emprestimoController = new EmprestimoController();
-
-        this.rl = readline.createInterface({
-            input: process.stdin,
-            output: process.stdout
-        });
+    constructor(rl: readline.Interface) {
+    this.emprestimoController = new EmprestimoController();
+    this.rl = rl;
     }
 
     private perguntar(pergunta: string): Promise<string> {

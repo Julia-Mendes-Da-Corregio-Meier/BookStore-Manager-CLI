@@ -5,13 +5,9 @@ export class ClienteMenu{
     private clienteController: ClienteController;
     private rl: readline.Interface;
 
-    constructor(){
-        this.clienteController = new ClienteController();
-
-        this.rl = readline.createInterface({
-            input: process.stdin,
-            output: process.stdout
-        })
+    constructor(rl: readline.Interface) {
+    this.clienteController = new ClienteController();
+    this.rl = rl;
     }
 
     private perguntar (pergunta: string): Promise<string> {

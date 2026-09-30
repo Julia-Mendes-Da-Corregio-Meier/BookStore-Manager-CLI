@@ -5,12 +5,9 @@ export class AutorMenu {
     private autorController: AutorController;
     private rl: readline.Interface
 
-    constructor() {
+    constructor(rl: readline.Interface) {
         this.autorController = new AutorController();
-        this.rl = readline.createInterface({
-            input: process.stdin,
-            output: process.stdout
-        })
+        this.rl = rl;
     }
 
     private perguntar(pergunta: string): Promise<string>{
