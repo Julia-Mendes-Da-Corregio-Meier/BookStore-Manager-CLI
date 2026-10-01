@@ -15,7 +15,7 @@ CREATE TABLE livros (
 CREATE TABLE clientes (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
-    email VARCHAR(150) NOT NULL UNIQUE
+    email VARCHAR(150) UNIQUE
 );
 
 CREATE TABLE emprestimos (

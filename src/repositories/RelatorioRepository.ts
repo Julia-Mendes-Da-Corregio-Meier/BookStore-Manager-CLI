@@ -50,7 +50,7 @@ export class RelatorioRepository{
             COUNT(emprestimos.id) AS quantidade_emprestimos
             FROM livros
             LEFT JOIN emprestimos
-               ON emprestimos.livro = livros.id
+               ON emprestimos.livro_id = livros.id
             GROUP BY livros.id, livros.titulo
             ORDER BY quantidade_emprestimos DESC`
         )

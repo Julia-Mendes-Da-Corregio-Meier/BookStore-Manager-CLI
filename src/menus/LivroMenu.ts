@@ -213,6 +213,7 @@ export class LivroMenu {
                                 }
 
                                 case "4": {
+                                    try{
                                     const autorId = Number(
                                         await this.perguntar(
                                             "Digite o novo ID do autor: "
@@ -225,7 +226,16 @@ export class LivroMenu {
                                     )
 
                                     console.log("Autor atualizado com sucesso!");
-                                    break;
+
+                                   } catch (erro) {
+                                       if(erro instanceof Error){
+                                        console.log(`Erro: ${erro.message}`)
+                                       } else {
+                                        console.log("Ocorreu um erro inesperado.")
+                                       }
+                                   }
+
+                                   break;
                                 }
 
                                 case "0":

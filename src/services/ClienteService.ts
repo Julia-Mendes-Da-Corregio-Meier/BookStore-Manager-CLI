@@ -13,6 +13,10 @@ export class ClienteService {
             throw new Error("O nome do cliente é obrigatório.");
         }
 
+        if (/\d/.test(nome)) {
+        throw new Error("O nome não pode conter números.");
+        }
+
         if (email !== null && !email.trim()) {
             email = null;
         }

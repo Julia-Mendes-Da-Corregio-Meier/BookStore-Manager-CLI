@@ -118,7 +118,13 @@ export class LivroService {
         const livro = await this.livroRepository.buscarPorId(id)
 
         if(livro === null){
-            throw new Error("Autor não encontrado.")
+            throw new Error("Livro não encontrado.")
+        }
+
+        const autor = await this.autorRepository.buscarPorId(autorId)
+
+        if (autor === null) {
+        throw new Error("Autor não encontrado.")
         }
 
         await this.livroRepository.atualizarAutor(id, autorId)

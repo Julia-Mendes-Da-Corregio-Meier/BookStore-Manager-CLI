@@ -40,7 +40,7 @@ export class ClienteRepository {
         const resultado = await pool.query(
             `SELECT id, nome, email
             FROM clientes
-            WHERE id = $1`[id]
+            WHERE id = $1`,[id]
         )
 
         if(resultado.rows.length === 0){

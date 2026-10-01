@@ -69,7 +69,7 @@ export class EmprestimoRepository{
               clientes.nome AS cliente,
               livros.titulo AS livro,
               emprestimos.data_emprestimo,
-              emprestimo.data_devolucao
+              emprestimos.data_devolucao
             FROM emprestimos
             INNER JOIN clientes
               ON emprestimos.cliente_id = clientes.id
