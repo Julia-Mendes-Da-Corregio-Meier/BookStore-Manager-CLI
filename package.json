@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "tsx src/main.ts",
     "build": "tsc",
-    "start": "node dist/main.js"
+    "start": "node dist/main.js",
+    "db:create": "tsx src/database/criarBanco.ts",
+    "db:migrate": "tsx src/database/migrate.ts"
   },
   "keywords": [],
   "author": "",
