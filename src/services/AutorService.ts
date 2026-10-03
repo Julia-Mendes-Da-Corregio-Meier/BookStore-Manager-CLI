@@ -1,5 +1,6 @@
 import { AutorRepository } from "../repositories/AutorRepository";
 import { Autor } from "../models/Autor";
+import { validarNome } from "../utils/validacoes";
 
 export class AutorService {
     private autorRepository: AutorRepository
@@ -9,9 +10,7 @@ export class AutorService {
     }
 
     async criar(nome: string): Promise<Autor> {
-        if (!nome.trim()){
-            throw new Error("O nome do autor é obrigatório!")
-        }
+        validarNome(nome);
 
         return await this.autorRepository.criar(nome.trim())
     }
@@ -31,9 +30,7 @@ export class AutorService {
     }
 
     async atualizar(id: number, nome: string): Promise<void> {
-        if(!nome.trim()){
-            throw new Error("O nome do autor é obrigatório.")
-        }
+        validarNome(nome);
 
         const autor = await this.autorRepository.buscarPorId(id)
 

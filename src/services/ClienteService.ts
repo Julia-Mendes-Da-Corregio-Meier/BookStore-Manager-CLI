@@ -1,5 +1,6 @@
 import { Cliente } from "../models/Cliente";
 import { ClienteRepository } from "../repositories/ClienteRepository";
+import { validarNome } from "../utils/validacoes";
 
 export class ClienteService {
      private clienteRepository: ClienteRepository;
@@ -9,13 +10,7 @@ export class ClienteService {
      }
 
      async criar(nome: string, email: string |null): Promise<Cliente>{
-        if (!nome.trim()){
-            throw new Error("O nome do cliente é obrigatório.");
-        }
-
-        if (/\d/.test(nome)) {
-        throw new Error("O nome não pode conter números.");
-        }
+        validarNome(nome);
 
         if (email !== null && !email.trim()) {
             email = null;
@@ -48,9 +43,7 @@ export class ClienteService {
      }
 
      async atualizar(id: number, nome: string, email: string | null): Promise<void>{
-        if (!nome.trim()){
-            throw new Error("O nome do cliente é obrigatório.");
-        }
+        validarNome(nome);
 
         const cliente = await this.clienteRepository.buscarPorId(id);
 
