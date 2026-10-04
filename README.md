@@ -368,7 +368,9 @@ Link do Kanban do projeto:
 
 Vídeo de apresentação do projeto:
 
-**COLE_AQUI_O_LINK_DO_VIDEO**
+## 🎥 Vídeo de apresentação
+
+[Assistir ao vídeo de apresentação](https://drive.google.com/file/d/1r83bUzm2P4exnBOj8U28Rn7VC58WLtoW/view?usp=drivesdk)
 
 ---
 
